@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = FreeCourse.IdentityServer
+build_property.ProjectDir = C:\Users\dgn13\OneDrive\Documents\GitHub\Microservices-AspNetCore\Microservices\IdentityServer\FreeCourse.IdentityServer\
