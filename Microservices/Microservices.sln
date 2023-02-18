@@ -7,31 +7,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{DED07F9D-F2B7-4C31-AE6E-335EAEA7AFC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Services.Catalog", "Services\Catalog\FreeCourse.Services.Catalog\FreeCourse.Services.Catalog.csproj", "{8BEAD2FC-4EC4-4CD4-A296-6C3F5DD1F474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Services.Catalog", "Services\Catalog\FreeCourse.Services.Catalog\FreeCourse.Services.Catalog.csproj", "{8BEAD2FC-4EC4-4CD4-A296-6C3F5DD1F474}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FDD13801-17E9-4781-85EF-73F3209DB639}"
 	ProjectSection(SolutionItems) = preProject
 		Ports.txt = Ports.txt
 	EndProjectSection
 EndProject
-<<<<<<< Updated upstream
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9689A661-6B92-4F1B-9EF9-5460E989024C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Shared", "Shared\FreeCourse.Shared\FreeCourse.Shared.csproj", "{D77C83B7-A306-4AC9-B486-5CB830CF2FD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Shared", "Shared\FreeCourse.Shared\FreeCourse.Shared.csproj", "{D77C83B7-A306-4AC9-B486-5CB830CF2FD6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{8C95C190-2440-41FD-B93C-B7F8A2CE22FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.IdentityServer", "IdentityServer\FreeCourse.IdentityServer\FreeCourse.IdentityServer.csproj", "{BCE55824-85B2-437F-B63E-ED422CCA2C86}"
 EndProject
-=======
->>>>>>> Stashed changes
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-<<<<<<< Updated upstream
 		{8BEAD2FC-4EC4-4CD4-A296-6C3F5DD1F474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BEAD2FC-4EC4-4CD4-A296-6C3F5DD1F474}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BEAD2FC-4EC4-4CD4-A296-6C3F5DD1F474}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,31 +40,15 @@ Global
 		{BCE55824-85B2-437F-B63E-ED422CCA2C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCE55824-85B2-437F-B63E-ED422CCA2C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCE55824-85B2-437F-B63E-ED422CCA2C86}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
-		{F710C2AA-3747-4CFF-9048-18747C370695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F710C2AA-3747-4CFF-9048-18747C370695}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F710C2AA-3747-4CFF-9048-18747C370695}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F710C2AA-3747-4CFF-9048-18747C370695}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA93FCCD-3CFB-40EF-A447-4B8E8DC7D5AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA93FCCD-3CFB-40EF-A447-4B8E8DC7D5AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA93FCCD-3CFB-40EF-A447-4B8E8DC7D5AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA93FCCD-3CFB-40EF-A447-4B8E8DC7D5AD}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> Stashed changes
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-<<<<<<< Updated upstream
 		{DED07F9D-F2B7-4C31-AE6E-335EAEA7AFC6} = {A193D01F-DE0C-4565-BFC1-8CAD023C8451}
 		{8BEAD2FC-4EC4-4CD4-A296-6C3F5DD1F474} = {DED07F9D-F2B7-4C31-AE6E-335EAEA7AFC6}
 		{D77C83B7-A306-4AC9-B486-5CB830CF2FD6} = {9689A661-6B92-4F1B-9EF9-5460E989024C}
 		{BCE55824-85B2-437F-B63E-ED422CCA2C86} = {8C95C190-2440-41FD-B93C-B7F8A2CE22FF}
-=======
-		{33959411-8B4B-44CB-BF16-A0CB35BDDA3D} = {3612F450-6434-48C8-8835-2F1202F44576}
-		{F710C2AA-3747-4CFF-9048-18747C370695} = {33959411-8B4B-44CB-BF16-A0CB35BDDA3D}
-		{EA93FCCD-3CFB-40EF-A447-4B8E8DC7D5AD} = {AD8E280C-262B-4938-B4F1-D1B01328B2A9}
->>>>>>> Stashed changes
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C94AB58A-7641-4457-ACEC-E88176EE5BDC}
