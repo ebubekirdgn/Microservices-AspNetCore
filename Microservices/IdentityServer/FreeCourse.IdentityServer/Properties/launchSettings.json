@@ -2,11 +2,26 @@
   "profiles": {
     "SelfHost": {
       "commandName": "Project",
+<<<<<<< HEAD
       "launchBrowser": false,
+=======
+>>>>>>> main
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:5001"
+<<<<<<< HEAD
+=======
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "launchUrl": "http://localhost:5001",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5001"
+      },
+      "distributionName": ""
+>>>>>>> main
     }
   }
 }
