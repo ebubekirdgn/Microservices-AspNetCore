@@ -1,1 +1,3 @@
 Services.Catalog => http://localhost:5011
+IdentityServer => http://localhost:5001
+Services.PhotoStock => http://localhost:5012
