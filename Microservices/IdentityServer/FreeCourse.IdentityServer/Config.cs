@@ -12,44 +12,25 @@ namespace FreeCourse.IdentityServer
     {
         public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
         {
-<<<<<<< HEAD
             new ApiResource("resource_catalog"){Scopes= {"catalog_fullpermission"} },
             new ApiResource("photo_stock_catalog"){Scopes= { "photo_stock_fullpermission" } },
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
-=======
-            new ApiResource("resource_catalog"){Scopes={"catalog_fullpermission"}},
-               new ApiResource("photo_stock_catalog"){Scopes={"photo_stock_fullpermission"}},
-               new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
->>>>>>> main
         };
 
         public static IEnumerable<IdentityResource> IdentityResources =>
                    new IdentityResource[]
                    {
-<<<<<<< HEAD
                        new IdentityResources.Email(), //email
                        new IdentityResources.OpenId(),//sub
                        new IdentityResources.Profile(),
                        new IdentityResource(){Name = "roles",DisplayName = "Role", Description="Kullanıcı Rolleri",UserClaims=new[]{ "role"} },
-=======
-                       new IdentityResources.Email(),
-                       new IdentityResources.OpenId(),
-                       new IdentityResources.Profile(),
-                       new IdentityResource(){ Name="roles", DisplayName="Roles", Description="Kullanıcı rolleri", UserClaims=new []{ "role"} }
->>>>>>> main
                    };
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-<<<<<<< HEAD
                 new ApiScope("catalog_fullpermission","Catalog API icin full erisim"),
                 new ApiScope("photo_stock_fullpermission","Photo Stock API icin full erisim"),
-=======
-                new ApiScope("catalog_fullpermission","Catalog API için full erişim"),
-
-                new ApiScope("photo_stock_fullpermission","Photo Stock API için full erişim"),
->>>>>>> main
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
