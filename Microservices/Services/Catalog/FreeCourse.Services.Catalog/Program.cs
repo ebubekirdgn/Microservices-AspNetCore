@@ -8,6 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.Authority = builder.Configuration["IdentityServerURL"];
+    options.Audience = "resource_catalog";
+    options.RequireHttpsMetadata = false;
+});
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddAutoMapper(typeof(Program)); // Tüm mapperlari tara dedik.
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add(new AuthorizeFilter()); // Tüm Controllerlarý Authorize etmiþ olduk
@@ -18,20 +28,8 @@ builder.Services.AddSingleton<IDatabaseSettings>(sp =>
 {
     return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
 });
- 
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<ICourseService, CourseService>();
-
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddAutoMapper(typeof(Program)); // Tüm mapperlari tara dedik.
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-{
-    options.Authority = builder.Configuration["IdentityServerURL"];
-    options.Audience = "resource_catalog";
-    options.RequireHttpsMetadata = false;
-});
 
 var app = builder.Build();
 
@@ -42,8 +40,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
