@@ -1,13 +1,27 @@
 using FreeCoure.Services.Basket.Services;
 using FreeCoure.Services.Basket.Settings;
 using FreeCourse.Shared.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.Authority = builder.Configuration["IdentityServerURL"];
+    options.Audience = "resource_catalog";
+    options.RequireHttpsMetadata = false;
+});
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy)); // Tüm Controllerlarý Authorize etmiþ olduk
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor();
@@ -33,8 +47,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
