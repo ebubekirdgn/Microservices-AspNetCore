@@ -13,13 +13,7 @@ namespace FreeCoure.Services.Basket.Services
             _redisService = redisService;
         }
 
-        public async Task<Response<bool>> Delete(string userId)
-        {
-            var status = await _redisService.GetDb().KeyDeleteAsync(userId);
-            return status ? Response<bool>.Success(204) : Response<bool>.Fail("Basket not found", 404);
-        }
-
-        public async Task<Response<BasketDto>> GetBasket(string userId)
+        public async Task<Response<BasketDto>> GetBasketAsync(string userId)
         {
             var existBasket = await _redisService.GetDb().StringGetAsync(userId);
 
@@ -31,11 +25,17 @@ namespace FreeCoure.Services.Basket.Services
             return Response<BasketDto>.Success(JsonSerializer.Deserialize<BasketDto>(existBasket), 200);
         }
 
-        public async Task<Response<bool>> SaveOrUpdate(BasketDto basketDto)
+        public async Task<Response<bool>> SaveOrUpdateAsync(BasketDto basketDto)
         {
             var status = await _redisService.GetDb().StringSetAsync(basketDto.UserId, JsonSerializer.Serialize(basketDto));
 
             return status ? Response<bool>.Success(204) : Response<bool>.Fail("Basket could not update or save", 500);
+        }
+
+        public async Task<Response<bool>> DeleteAsync(string userId)
+        {
+            var status = await _redisService.GetDb().KeyDeleteAsync(userId);
+            return status ? Response<bool>.Success(204) : Response<bool>.Fail("Basket not found", 404);
         }
     }
 }
