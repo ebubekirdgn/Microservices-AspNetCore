@@ -12,7 +12,6 @@ namespace FreeCoure.Services.Basket.Controllers
     {
         private readonly IBasketService _basketService;
         private readonly ISharedIdentityService _sharedIdentityService;
-
         public BasketsController(IBasketService basketService, ISharedIdentityService sharedIdentityService)
         {
             _basketService = basketService;
