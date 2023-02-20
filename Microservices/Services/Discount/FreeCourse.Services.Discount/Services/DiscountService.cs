@@ -32,7 +32,7 @@ namespace FreeCourse.Services.Discount.Services
 
             var hasDiscount = discounts.FirstOrDefault();
 
-            if (hasDiscount == null)
+            if (hasDiscount is null)
             {
                 return Response<Models.Discount>.Fail("Discount not found", 404);
             }
