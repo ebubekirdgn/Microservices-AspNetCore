@@ -11,4 +11,4 @@ namespace FreeCoure.Services.Basket.Services
 
         Task<Response<bool>> DeleteAsync(string userId);
     }
-} 
+}
