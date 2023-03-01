@@ -1,5 +1,5 @@
-﻿using AutoMapper.Internal.Mappers;
-using FreeCourse.Services.Order.Application.Dtos;
+﻿using FreeCourse.Services.Order.Application.Dtos;
+using FreeCourse.Services.Order.Application.Mapping;
 using FreeCourse.Services.Order.Application.Queries;
 using FreeCourse.Services.Order.Infrastructure;
 using FreeCourse.Shared.Dtos;
@@ -16,6 +16,7 @@ namespace FreeCourse.Services.Order.Application.Handlers
         {
             _context = context;
         }
+
         public async Task<Response<List<OrderDto>>> Handle(GetOrdersByUserIdQuery request, CancellationToken cancellationToken)
         {
             var orders = await _context.Orders.Include(x => x.OrderItems).Where(x => x.BuyerId == request.UserId).ToListAsync();
@@ -30,4 +31,4 @@ namespace FreeCourse.Services.Order.Application.Handlers
             return Response<List<OrderDto>>.Success(ordersDto, 200);
         }
     }
-}
+} 
