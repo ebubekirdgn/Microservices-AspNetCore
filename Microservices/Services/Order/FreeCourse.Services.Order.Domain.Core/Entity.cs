@@ -48,7 +48,7 @@
                 return item.Id == this.Id;
         }
 
-        public static bool operator == (Entity left, Entity right)
+        public static bool operator ==(Entity left, Entity right)
         {
             if (Object.Equals(left, null))
                 return (Object.Equals(right, null)) ? true : false;
