@@ -1,4 +1,5 @@
-﻿using FreeCourse.Services.Order.Application.Dtos;
+﻿using FreeCourse.Services.Order.Application.Commands;
+using FreeCourse.Services.Order.Application.Dtos;
 using FreeCourse.Services.Order.Infrastructure;
 using FreeCourse.Shared.Dtos;
 using MediatR;
