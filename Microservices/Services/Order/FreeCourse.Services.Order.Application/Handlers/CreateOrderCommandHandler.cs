@@ -1,5 +1,6 @@
 ﻿using FreeCourse.Services.Order.Application.Commands;
 using FreeCourse.Services.Order.Application.Dtos;
+using FreeCourse.Services.Order.Domain.OrderAggregate;
 using FreeCourse.Services.Order.Infrastructure;
 using FreeCourse.Shared.Dtos;
 using MediatR;
@@ -15,9 +16,21 @@ namespace FreeCourse.Services.Order.Application.Handlers
             _context = context;
         }
 
-        public Task<Response<CreatedOrderDto>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+        public async Task<Response<CreatedOrderDto>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var newAddress = new Address(request.Address.Province, request.Address.District, request.Address.Street, request.Address.ZipCode, request.Address.Line);
+
+            Domain.OrderAggregate.Order newOrder = new Domain.OrderAggregate.Order(request.BuyerId, newAddress);
+
+            request.OrderItems.ForEach(x =>
+            {
+                newOrder.AddOrderItem(x.ProductId, x.ProductName, x.Price, x.PictureUrl);
+            });
+
+            await _context.Orders.AddAsync(newOrder);
+            await _context.SaveChangesAsync();
+
+            return Response<CreatedOrderDto>.Success(new CreatedOrderDto { OrderId = newOrder.Id }, 200);
         }
     }
 }
