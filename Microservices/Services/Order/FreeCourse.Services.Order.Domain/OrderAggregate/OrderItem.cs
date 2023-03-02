@@ -2,7 +2,7 @@
 
 namespace FreeCourse.Services.Order.Domain.OrderAggregate
 {
-    public class OrderItem:Entity
+    public class OrderItem : Entity
     {
         public string ProductId { get; private set; }
         public string ProductName { get; private set; }
