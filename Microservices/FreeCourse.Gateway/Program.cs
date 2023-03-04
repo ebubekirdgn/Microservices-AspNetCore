@@ -6,9 +6,8 @@ builder.Services.AddOcelot();
 
 
 var app = builder.Build();
-
-builder.Configuration.AddJsonFile($"appsettings{Environment.GetEnvironmentVariable(
-"ASPNETCORE_ENVIRONMENT".ToLower())}.json", false, true);
+var env = builder.Environment;
+builder.Configuration.AddJsonFile($"configuration.{env.EnvironmentName.ToLower()}.json").AddEnvironmentVariables();
 
 
 app.MapGet(" /", () => "Hello World!");
