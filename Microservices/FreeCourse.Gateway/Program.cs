@@ -2,12 +2,15 @@ using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 builder.Services.AddOcelot();
 
 
-builder.Configuration.AddJsonFile($"configuration.{builder.Environment.EnvironmentName.ToLower()}.json").AddEnvironmentVariables();
+var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+builder.Configuration.AddJsonFile($"appsettings{Environment.GetEnvironmentVariable(
+"ASPNETCORE_ENVIRONMENT".ToLower())}.json", false, true);
+
+
+app.MapGet(" /", () => "Hello World!");
 await app.UseOcelot();
 app.Run();
