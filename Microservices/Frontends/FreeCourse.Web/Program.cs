@@ -16,7 +16,7 @@ builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("Cli
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
 {
     opts.LoginPath = "/Auth/SignIn";
-    opts.ExpireTimeSpan = TimeSpan.FromDays(60);
+    opts.ExpireTimeSpan = TimeSpan.FromDays(60); //cookie ömrü
     opts.SlidingExpiration = true;
     opts.Cookie.Name = "udemywebcookie";
 });
