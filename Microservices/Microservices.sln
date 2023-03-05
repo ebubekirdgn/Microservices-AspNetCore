@@ -26,11 +26,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PhotoStock", "PhotoStock", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Services.PhotoStock", "Services\PhotoStock\FreeCourse.Services.PhotoStock\FreeCourse.Services.PhotoStock.csproj", "{1935946B-F63F-4C4E-95A7-1FEECE855FAD}"
 EndProject
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> main
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{0978CAEC-3A43-4A29-8ABD-FCDD584518B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCoure.Services.Basket", "Services\Basket\FreeCoure.Services.Basket\FreeCoure.Services.Basket.csproj", "{D38E7BC1-0F46-4703-8233-331ED6B8EC29}"
@@ -57,14 +52,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Services.FakePay
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{3EA203C4-9110-404D-AE18-EDBA6E48FA30}"
 EndProject
-<<<<<<< HEAD
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Gateway", "FreeCourse.Gateway\FreeCourse.Gateway.csproj", "{A6720C98-8F7D-405F-97A6-318736A7DA92}"
 EndProject
->>>>>>> Stashed changes
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Gateway", "FreeCourse.Gateway\FreeCourse.Gateway.csproj", "{A6720C98-8F7D-405F-97A6-318736A7DA92}"
-EndProject
->>>>>>> main
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -134,13 +123,7 @@ Global
 		{BCE55824-85B2-437F-B63E-ED422CCA2C86} = {8C95C190-2440-41FD-B93C-B7F8A2CE22FF}
 		{C01D3D90-E79B-40C8-97B6-5C647664B346} = {A193D01F-DE0C-4565-BFC1-8CAD023C8451}
 		{1935946B-F63F-4C4E-95A7-1FEECE855FAD} = {C01D3D90-E79B-40C8-97B6-5C647664B346}
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-		{0978CAEC-3A43-4A29-8ABD-FCDD584518B5} = {DED07F9D-F2B7-4C31-AE6E-335EAEA7AFC6}
-=======
 		{0978CAEC-3A43-4A29-8ABD-FCDD584518B5} = {A193D01F-DE0C-4565-BFC1-8CAD023C8451}
->>>>>>> main
 		{D38E7BC1-0F46-4703-8233-331ED6B8EC29} = {0978CAEC-3A43-4A29-8ABD-FCDD584518B5}
 		{6AF02887-8080-4985-9DF0-09728D971E85} = {A193D01F-DE0C-4565-BFC1-8CAD023C8451}
 		{F1845898-C7BE-4020-B7C7-24334A4A11B7} = {6AF02887-8080-4985-9DF0-09728D971E85}
@@ -153,10 +136,6 @@ Global
 		{F153CE5F-9772-485A-AAD0-FA2E16C3F5A7} = {A193D01F-DE0C-4565-BFC1-8CAD023C8451}
 		{3F3F590D-408F-487D-A6BC-6DB717081011} = {F153CE5F-9772-485A-AAD0-FA2E16C3F5A7}
 		{A6720C98-8F7D-405F-97A6-318736A7DA92} = {3EA203C4-9110-404D-AE18-EDBA6E48FA30}
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> main
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C94AB58A-7641-4457-ACEC-E88176EE5BDC}
