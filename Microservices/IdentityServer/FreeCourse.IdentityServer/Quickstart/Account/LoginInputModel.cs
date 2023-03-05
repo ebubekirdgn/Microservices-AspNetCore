@@ -3,7 +3,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace IdentityServerHost.Quickstart.UI
+namespace FreeCourse.IdentityServer.Quickstart.Account
 {
     public class LoginInputModel
     {
