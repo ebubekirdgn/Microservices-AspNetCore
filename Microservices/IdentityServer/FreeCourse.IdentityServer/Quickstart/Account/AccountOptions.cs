@@ -3,7 +3,7 @@
 
 using System;
 
-namespace IdentityServerHost.Quickstart.UI
+namespace FreeCourse.IdentityServer.Quickstart.Account
 {
     public class AccountOptions
     {

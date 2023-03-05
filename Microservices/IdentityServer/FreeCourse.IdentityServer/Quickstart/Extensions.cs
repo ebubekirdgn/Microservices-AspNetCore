@@ -1,8 +1,9 @@
+using FreeCourse.IdentityServer.Quickstart.Account;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace IdentityServerHost.Quickstart.UI
+namespace FreeCourse.IdentityServer.Quickstart
 {
     public static class Extensions
     {
