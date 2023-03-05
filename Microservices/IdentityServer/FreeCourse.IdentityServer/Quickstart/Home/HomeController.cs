@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace IdentityServerHost.Quickstart.UI
+namespace FreeCourse.IdentityServer.Quickstart.Home
 {
     [SecurityHeaders]
     [AllowAnonymous]
