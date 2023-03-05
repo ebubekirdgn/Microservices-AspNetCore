@@ -1,6 +1,7 @@
 using FreeCourse.Web.Models;
 using FreeCourse.Web.Services;
 using FreeCourse.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,13 @@ builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
+{
+    opts.LoginPath = "/Auth/SignIn";
+    opts.ExpireTimeSpan = TimeSpan.FromDays(60);
+    opts.SlidingExpiration = true;
+    opts.Cookie.Name = "udemywebcookie";
+});
 
 var app = builder.Build();
 
