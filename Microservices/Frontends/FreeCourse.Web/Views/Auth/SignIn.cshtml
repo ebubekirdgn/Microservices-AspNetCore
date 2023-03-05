@@ -7,10 +7,9 @@
 
     <div class="col-md-4 offset-md-4">
         <div class="card">
-
             <div class="card-body">
-
                 <h5 class="card-title">Üye Giriş</h5>
+                <div class="text-bg-danger" asp-validation-summary="ModelOnly"></div>
                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                 <form asp-controller="Auth" asp-action="SignIn" method="post">
                     <div class="mb-3">
