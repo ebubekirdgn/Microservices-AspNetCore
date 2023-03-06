@@ -1,17 +1,16 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using System;
-using System.Linq;
-using System.Security.Claims;
-using IdentityModel;
 using FreeCourse.IdentityServer.Data;
 using FreeCourse.IdentityServer.Models;
+using IdentityModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using System;
+using System.Linq;
+using System.Security.Claims;
 
 namespace FreeCourse.IdentityServer
 {
