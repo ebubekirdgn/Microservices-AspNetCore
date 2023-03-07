@@ -1,4 +1,5 @@
-﻿using FreeCourse.Web.Services.Interfaces;
+﻿using FreeCourse.Web.Exceptions;
+using FreeCourse.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
