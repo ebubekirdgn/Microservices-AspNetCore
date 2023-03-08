@@ -15,6 +15,11 @@ namespace FreeCourse.Web.Services.Catalog
             throw new NotImplementedException();
         }
 
+        public Task<List<CategoryViewModel>> GetAllCategoryAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<CourseViewModel>> GetAllCourseAsync()
         {
             throw new NotImplementedException();
