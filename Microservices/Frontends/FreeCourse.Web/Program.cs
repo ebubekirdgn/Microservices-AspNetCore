@@ -1,7 +1,8 @@
 using FreeCourse.Web.Handler;
 using FreeCourse.Web.Models;
-using FreeCourse.Web.Services;
+using FreeCourse.Web.Services.Identity;
 using FreeCourse.Web.Services.Interfaces;
+using FreeCourse.Web.Services.User;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -26,4 +26,3 @@ namespace FreeCourse.Web.Models.Catalogs
         public IFormFile PhotoFormFile { get; set; }
     }
 }
-}

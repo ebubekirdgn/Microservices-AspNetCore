@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
 
-namespace FreeCourse.Web.Services
+namespace FreeCourse.Web.Services.Identity
 {
     public class IdentityService : IIdentityService
     {
