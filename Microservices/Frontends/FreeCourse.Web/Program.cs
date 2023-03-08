@@ -1,5 +1,6 @@
 using FreeCourse.Web.Handler;
 using FreeCourse.Web.Models;
+using FreeCourse.Web.Services.Catalog;
 using FreeCourse.Web.Services.Identity;
 using FreeCourse.Web.Services.Interfaces;
 using FreeCourse.Web.Services.User;
@@ -20,6 +21,10 @@ var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 
+builder.Services.AddHttpClient<ICatalogService, CatalogService>(options =>
+{
+    options.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}");
+});
 builder.Services.AddHttpClient<IUserService, UserService>(options =>
 {
     options.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
