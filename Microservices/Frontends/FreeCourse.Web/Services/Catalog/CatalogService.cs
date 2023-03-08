@@ -5,8 +5,6 @@ namespace FreeCourse.Web.Services.Catalog
 {
     public class CatalogService : ICatalogService
     {
-
-
         private readonly HttpClient _client;
 
         public CatalogService(HttpClient client)
