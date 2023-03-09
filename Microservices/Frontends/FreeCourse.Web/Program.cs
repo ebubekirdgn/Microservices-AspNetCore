@@ -1,3 +1,4 @@
+using FreeCourse.Shared.Services;
 using FreeCourse.Web.Handler;
 using FreeCourse.Web.Models;
 using FreeCourse.Web.Services.Catalog;
@@ -13,6 +14,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
+builder.Services.AddHttpClient<ISharedIdentityService, SharedIdentityService>();
 
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
