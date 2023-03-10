@@ -1,7 +1,8 @@
 ﻿namespace FreeCourse.Web.Models
 {
-    public class ServiceApiSettings
+    public class ServiceApiOptions
     {
+        public const string OptionKey = "ServiceApiOptions";
         public string IdentityBaseUri { get; set; }
         public string GatewayBaseUri { get; set; }
         public string PhotoStockUri { get; set; }

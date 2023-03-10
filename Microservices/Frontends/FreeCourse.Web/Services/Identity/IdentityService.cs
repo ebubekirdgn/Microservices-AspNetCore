@@ -17,21 +17,21 @@ namespace FreeCourse.Web.Services.Identity
         private readonly HttpClient _httpClient;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClientSettings _clientSettings;
-        private readonly ServiceApiSettings _serviceApiSettings;
+        private readonly ServiceApiOptions _serviceApiOptions;
 
-        public IdentityService(HttpClient client, IHttpContextAccessor httpContextAccessor, IOptions<ClientSettings> clientSettings, IOptions<ServiceApiSettings> serviceApiSettings)
+        public IdentityService(HttpClient client, IHttpContextAccessor httpContextAccessor, IOptions<ClientSettings> clientSettings, IOptions<ServiceApiOptions> serviceApiOptions)
         {
             _httpClient = client;
             _httpContextAccessor = httpContextAccessor;
             _clientSettings = clientSettings.Value;
-            _serviceApiSettings = serviceApiSettings.Value;
+            _serviceApiOptions = serviceApiOptions.Value;
         }
 
         public async Task<TokenResponse> GetAccessTokenByRefreshToken()
         {
             var discovery = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
-                Address = _serviceApiSettings.IdentityBaseUri,
+                Address = _serviceApiOptions.IdentityBaseUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
 
@@ -79,7 +79,7 @@ namespace FreeCourse.Web.Services.Identity
         {
             var discovery = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
-                Address = _serviceApiSettings.IdentityBaseUri,
+                Address = _serviceApiOptions.IdentityBaseUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
 
@@ -105,7 +105,7 @@ namespace FreeCourse.Web.Services.Identity
         {
             var discovery = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
-                Address = _serviceApiSettings.IdentityBaseUri,
+                Address = _serviceApiOptions.IdentityBaseUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false } // https servisini iptal ettik
             });
 

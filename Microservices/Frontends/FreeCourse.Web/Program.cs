@@ -16,10 +16,10 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 builder.Services.AddHttpClient<ISharedIdentityService, SharedIdentityService>();
 
-builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
+builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.OptionKey));
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 
-var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
+var serviceApiSettings = builder.Configuration.GetSection(ServiceApiOptions.OptionKey).Get<ServiceApiOptions>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 

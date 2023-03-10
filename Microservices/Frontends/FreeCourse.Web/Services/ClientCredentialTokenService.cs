@@ -8,14 +8,14 @@ namespace FreeCourse.Web.Services
 {
     public class ClientCredentialTokenService : IClientCredentialTokenService
     {
-        private readonly ServiceApiSettings _serviceApiSettings;
+        private readonly ServiceApiOptions _serviceApiOptions;
         private readonly ClientSettings _clientSettings;
         private readonly IClientAccessTokenCache _clientAccessTokenCache;
         private readonly HttpClient _httpClient;
 
-        public ClientCredentialTokenService(IOptions<ServiceApiSettings> serviceApiSettings, IOptions<ClientSettings> clientSettings, IClientAccessTokenCache clientAccessTokenCache, HttpClient httpClient)
+        public ClientCredentialTokenService(IOptions<ServiceApiOptions> serviceApiOptions, IOptions<ClientSettings> clientSettings, IClientAccessTokenCache clientAccessTokenCache, HttpClient httpClient)
         {
-            _serviceApiSettings = serviceApiSettings.Value;
+            _serviceApiOptions = serviceApiOptions.Value;
             _clientSettings = clientSettings.Value;
             _clientAccessTokenCache = clientAccessTokenCache;
             _httpClient = httpClient;
@@ -32,7 +32,7 @@ namespace FreeCourse.Web.Services
 
             var discovery = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
-                Address = _serviceApiSettings.IdentityBaseUri,
+                Address = _serviceApiOptions.IdentityBaseUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
 
