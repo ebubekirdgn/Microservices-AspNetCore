@@ -12,17 +12,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddHttpClient<IIdentityService, IdentityService>();
-builder.Services.AddHttpClient<ISharedIdentityService, SharedIdentityService>();
 
-builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.OptionKey));
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(ClientSettings.OptionKey));
-
+builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.OptionKey));
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAccessTokenManagement();  // IClientAccesTokenCache ' i DI 'da geçmemizi sagliyor.
+builder.Services.AddHttpClient<ISharedIdentityService, SharedIdentityService>();
 var serviceApiSettings = builder.Configuration.GetSection(ServiceApiOptions.OptionKey).Get<ServiceApiOptions>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IClientCredentialTokenService, IClientCredentialTokenService>();
+builder.Services.AddHttpClient<IIdentityService, IdentityService>();
+
 builder.Services.AddHttpClient<ICatalogService, CatalogService>(options =>
 {
     options.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}");
