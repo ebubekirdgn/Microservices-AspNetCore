@@ -4,13 +4,16 @@ namespace FreeCourse.Web.Models.Catalogs
 {
     public class CourseCreateInput
     {
-        [Display(Name = "Kurs ismi")]
+        [Display(Name = "Kurs İsmi")]
+        [Required]
         public string Name { get; set; }
 
-        [Display(Name = "Kurs açıklama")]
+        [Display(Name = "Kurs Açıklama")]
         public string Description { get; set; }
 
-        [Display(Name = "Kurs fiyat")]
+        [Required]
+        [Display(Name = "Kurs Fiyat")]
+        [Range(0, double.MaxValue, ErrorMessage = "Kurs ücreti negatif olamaz")]
         public decimal Price { get; set; }
 
         public string Picture { get; set; }
@@ -19,7 +22,8 @@ namespace FreeCourse.Web.Models.Catalogs
 
         public FeatureViewModel Feature { get; set; }
 
-        [Display(Name = "Kurs kategori")]
+        [Required]
+        [Display(Name = "Kurs Kategori")]
         public string CategoryId { get; set; }
 
         [Display(Name = "Kurs Resim")]

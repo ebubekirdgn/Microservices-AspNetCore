@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+@model CourseCreateInput
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kurs ekleme </h5>
+
+                <form asp-controller="Courses" asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly"></div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" asp-for="CategoryId"></label>
+                        <select asp-for="CategoryId" class="form-control" required asp-items="@ViewBag.categoryList">
+                            <option value="">Kategori Seçiniz</option>
+                        </select>
+
+                        <span class="text-danger" asp-validation-for="CategoryId"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" required />
+                        <span class="invalid-feedback" asp-validation-for="Name"></span>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label asp-for="Price" class="form-label"></label>
+                        <input asp-for="Price" class="form-control"  />
+                        <span class="text-danger" asp-validation-for="Price"></span>
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">₺</span>
+                        </div>
+                        <input type="text" asp-for="Price" class="form-control" required min="0" oninput="this.value = !!this.value && Math.abs(this.value)>= 0 ? Math.abs(this.value) : null">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span class="text-danger" asp-validation-for="Description"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Feature.Duration" class="form-label"></label>
+                        <input asp-for="Feature.Duration" class="form-control" required min="0" oninput="this.value = !!this.value && Math.abs(this.value)>= 0 ? Math.abs(this.value) : null" />
+                        <span class="text-danger" TextMode="Time" asp-validation-for="Feature.Duration"></span>
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label" asp-for="PhotoFormFile"></label>
+
+                        <input type="file" asp-for="PhotoFormFile" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Kurs Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
