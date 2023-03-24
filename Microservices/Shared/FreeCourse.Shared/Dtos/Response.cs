@@ -5,10 +5,10 @@ namespace FreeCourse.Shared.Dtos
 {
     public class Response<T>
     {
-        public T Data { get; private set; } // Dışarıdan set edilmesin yani nesneleri alıp değiştirmeyecek kimse
+        public T Data { get; set; }
 
         [JsonIgnore]
-        public int StatusCode { get; private set; }
+        public int StatusCode { get; set; }
 
         [JsonIgnore]
         public bool IsSuccessful { get; set; }
@@ -16,6 +16,7 @@ namespace FreeCourse.Shared.Dtos
         public List<string> Errors { get; set; }
 
         //Direk nesne örneğini biz dönüyoruz. Bu methodlara static factory method denir.
+        // Static Factory Method
         public static Response<T> Success(T data, int statusCode)
         {
             return new Response<T> { Data = data, StatusCode = statusCode, IsSuccessful = true };
@@ -27,6 +28,7 @@ namespace FreeCourse.Shared.Dtos
         }
 
         public static Response<T> Fail(List<string> errors, int statusCode)
+
         {
             return new Response<T>
             {
@@ -38,7 +40,7 @@ namespace FreeCourse.Shared.Dtos
 
         public static Response<T> Fail(string error, int statusCode)
         {
-            return new Response<T> { Errors = new List<string> { error }, StatusCode = statusCode, IsSuccessful = false };
+            return new Response<T> { Errors = new List<string>() { error }, StatusCode = statusCode, IsSuccessful = false };
         }
     }
 }
