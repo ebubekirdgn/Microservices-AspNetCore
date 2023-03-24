@@ -1,6 +1,7 @@
 using FreeCourse.Shared.Services;
 using FreeCourse.Web.Handler;
 using FreeCourse.Web.Models;
+using FreeCourse.Web.Services;
 using FreeCourse.Web.Services.Catalog;
 using FreeCourse.Web.Services.Identity;
 using FreeCourse.Web.Services.Interfaces;
@@ -16,25 +17,29 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(ClientSettings.OptionKey));
 builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.OptionKey));
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddAccessTokenManagement();  // IClientAccesTokenCache ' i DI 'da geçmemizi sagliyor.
-builder.Services.AddHttpClient<ISharedIdentityService, SharedIdentityService>();
+builder.Services.AddAccessTokenManagement();  // IClientAccesTokenCache ' i DI 'da geçmemizi sagli
 var serviceApiSettings = builder.Configuration.GetSection(ServiceApiOptions.OptionKey).Get<ServiceApiOptions>();
+builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialTokenHandler>();
 
-builder.Services.AddHttpClient<IClientCredentialTokenService, IClientCredentialTokenService>();
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
-
+ 
 builder.Services.AddHttpClient<ICatalogService, CatalogService>(options =>
 {
     options.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
 builder.Services.AddHttpClient<IUserService, UserService>(options =>
 {
     options.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
 {
     opts.LoginPath = "/Auth/SignIn";
     opts.ExpireTimeSpan = TimeSpan.FromDays(60); //cookie ömrü
