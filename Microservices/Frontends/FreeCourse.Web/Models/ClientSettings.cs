@@ -2,6 +2,7 @@
 {
     public class ClientSettings
     {
+        public const string OptionKey = "ClientSettings";
         public Client WebClient { get; set; }
         public Client WebClientForUser { get; set; }
     }
