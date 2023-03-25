@@ -14,9 +14,6 @@ namespace FreeCourse.Web.Models.Catalogs
 
         [Required]
         [Display(Name = "Kurs Fiyat")]
-        [Range(0, double.MaxValue, ErrorMessage = "Kurs ücreti negatif olamaz")]
-        [DataType(DataType.Currency)]
-        [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
 
         public string Picture { get; set; }
