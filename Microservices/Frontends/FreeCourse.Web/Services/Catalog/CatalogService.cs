@@ -18,6 +18,11 @@ namespace FreeCourse.Web.Services.Catalog
             var response = await _client.PostAsJsonAsync<CourseCreateInput>("courses", courseCreateInput);
             return response.IsSuccessStatusCode;
         }
+        public async Task<bool> UpdateCourseAsync(CourseUpdateInput courseUpdateInput)
+        {
+            var response = await _client.PutAsJsonAsync<CourseUpdateInput>("courses", courseUpdateInput);
+            return response.IsSuccessStatusCode;
+        }
 
         public async Task<bool> DeleteCourseAsync(string courseId)
         {
@@ -71,10 +76,5 @@ namespace FreeCourse.Web.Services.Catalog
             return responseSuccess.Data;
         }
 
-        public async Task<bool> UpdateCourseAsync(CourseUpdateInput courseUpdateInput)
-        {
-            var response = await _client.PutAsJsonAsync<CourseUpdateInput>("courses", courseUpdateInput);
-            return response.IsSuccessStatusCode;
-        }
     }
 }

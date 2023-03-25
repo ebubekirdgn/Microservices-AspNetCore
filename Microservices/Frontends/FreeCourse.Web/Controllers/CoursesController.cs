@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FreeCourse.Web.Controllers
 {
-    [Authorize]
     public class CoursesController : Controller
     {
         private readonly ICatalogService _catalogService;

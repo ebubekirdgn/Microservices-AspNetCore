@@ -13,7 +13,8 @@ namespace FreeCourse.Web.Services
         private readonly IClientAccessTokenCache _clientAccessTokenCache;
         private readonly HttpClient _httpClient;
 
-        public ClientCredentialTokenService(IOptions<ServiceApiOptions> serviceApiOptions, IOptions<ClientSettings> clientSettings, IClientAccessTokenCache clientAccessTokenCache, HttpClient httpClient)
+        public ClientCredentialTokenService(IOptions<ServiceApiOptions> serviceApiOptions, IOptions<ClientSettings> clientSettings, 
+            IClientAccessTokenCache clientAccessTokenCache, HttpClient httpClient)
         {
             _serviceApiOptions = serviceApiOptions.Value;
             _clientSettings = clientSettings.Value;
@@ -25,7 +26,7 @@ namespace FreeCourse.Web.Services
         {
             var currentToken = await _clientAccessTokenCache.GetAsync("WebClientToken");
 
-            if (currentToken != null)
+            if (currentToken is not null)
             {
                 return currentToken.AccessToken;
             }
