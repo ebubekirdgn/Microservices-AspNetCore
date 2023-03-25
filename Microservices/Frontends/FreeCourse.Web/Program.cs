@@ -17,7 +17,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(ClientSettings.OptionKey));
 builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.OptionKey));
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddAccessTokenManagement();  // IClientAccesTokenCache ' i DI 'da geçmemizi sagli
+builder.Services.AddAccessTokenManagement();  // IClientAccesTokenCache 'i DI 'da geçmemizi saglar
 builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
