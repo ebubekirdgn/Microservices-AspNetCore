@@ -38,6 +38,7 @@ namespace FreeCourse.Web.Services.Catalog
 
         public async Task<List<CourseViewModel>> GetAllCourseAsync()
         {
+            //http:localhost:5000/services/catalog/courses
             var response = await _client.GetAsync("courses");
             if (!response.IsSuccessStatusCode)
             {

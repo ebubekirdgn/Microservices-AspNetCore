@@ -18,7 +18,6 @@ builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(Clie
 builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.OptionKey));
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAccessTokenManagement();  // IClientAccesTokenCache ' i DI 'da geçmemizi sagli
-var serviceApiSettings = builder.Configuration.GetSection(ServiceApiOptions.OptionKey).Get<ServiceApiOptions>();
 builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
@@ -26,15 +25,16 @@ builder.Services.AddScoped<ClientCredentialTokenHandler>();
 
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
- 
+var serviceApiOptions = builder.Configuration.GetSection(ServiceApiOptions.OptionKey).Get<ServiceApiOptions>();
+
 builder.Services.AddHttpClient<ICatalogService, CatalogService>(options =>
 {
-    options.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}");
+    options.BaseAddress = new Uri($"{serviceApiOptions.GatewayBaseUri}/{serviceApiOptions.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 builder.Services.AddHttpClient<IUserService, UserService>(options =>
 {
-    options.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
+    options.BaseAddress = new Uri(serviceApiOptions.IdentityBaseUri);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 
