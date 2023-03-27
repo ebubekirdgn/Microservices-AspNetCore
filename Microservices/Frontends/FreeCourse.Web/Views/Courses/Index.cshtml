@@ -18,24 +18,19 @@
                                 <th>Kurs isim</th>
                                 <th>Fiyat</th>
                                 <th>Süre</th>
-                            @*    <th>Kategori</th>
-                                <th>İşlemler</th>*@
+                                <th>Kategori</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td><img style="width:72px;" src="@item.StockPictureUrl" class="img-thumbnail" /></td>
+                                    <td></td>
                                     <td>@item.Name</td>
                                     <td>@item.Price</td>
                                     <td>@item.Feature.Duration</td>
-                                @*    <td>@item.Category.Name</td>
-                                    <td>
-                                        <a asp-controller="Courses" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success btn-sm">Güncelle</a>
-
-                                        <a asp-controller="Courses" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Sil</a>
-                                    </td>*@
+                                    <td>@item.Category.Name</td>
+                               
                                 </tr>
                             }
                         </tbody>
