@@ -1,6 +1,10 @@
+using FreeCourse.Web.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.Option));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
