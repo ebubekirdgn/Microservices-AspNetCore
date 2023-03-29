@@ -1,8 +1,8 @@
 ﻿namespace FreeCourse.Web.Models
 {
-    public class ClientOptions
+    public class ClientSettings
     {
-        public const string Option = "ClientOptions";
+        public const string Option = "ClientSettings";
         public Client WebClient { get; set; }
         public Client WebClientForUser { get; set; }
     }

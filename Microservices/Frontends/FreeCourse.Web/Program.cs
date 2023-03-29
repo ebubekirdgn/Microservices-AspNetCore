@@ -3,9 +3,8 @@ using FreeCourse.Web.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(ClientSettings.Option));
 builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.Option));
-builder.Services.Configure<ClientOptions>(builder.Configuration.GetSection(ClientOptions.Option));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
