@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "FreeCourse.Services.Order.Application": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:2938;http://localhost:2943"
+    }
+  }
+}
