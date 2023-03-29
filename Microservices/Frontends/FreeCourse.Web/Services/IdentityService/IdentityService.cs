@@ -28,15 +28,15 @@ namespace FreeCourse.Web.Services.IdentityService
 
         public async Task<TokenResponse> GetAccessTokenByRefreshToken()
         {
-            var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
+            var discovery = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
                 Address = _serviceApiOptions.IdentityBaseUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
 
-            if (disco.IsError)
+            if (discovery.IsError)
             {
-                throw disco.Exception;
+                throw discovery.Exception;
             }
 
             var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
@@ -46,7 +46,7 @@ namespace FreeCourse.Web.Services.IdentityService
                 ClientId = _clientSettings.WebClientForUser.ClientId,
                 ClientSecret = _clientSettings.WebClientForUser.ClientSecret,
                 RefreshToken = refreshToken,
-                Address = disco.TokenEndpoint
+                Address = discovery.TokenEndpoint
             };
 
             var token = await _httpClient.RequestRefreshTokenAsync(refreshTokenRequest);
