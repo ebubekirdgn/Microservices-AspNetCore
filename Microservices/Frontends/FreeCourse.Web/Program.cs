@@ -11,17 +11,13 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient<IIdentityService , IdentityService>();
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
-<<<<<<< Updated upstream
 builder.Services.AddScoped<IUserService, UserService>();    
 
-var serviceApiOptions = builder.Configuration.GetSection(ServiceApiSettings.Option).Get<ServiceApiSettings>();
-=======
+var serviceApiOptions = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 builder.Services.AddHttpContextAccessor();
 
-var serviceApiOptions = builder.Configuration.GetSection(ServiceApiOptions.Option).Get<ServiceApiOptions>();
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
->>>>>>> Stashed changes
 
 builder.Services.AddHttpClient<IUserService, UserService>(opt =>
 {
