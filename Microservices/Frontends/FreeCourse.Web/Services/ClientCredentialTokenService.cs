@@ -13,12 +13,12 @@ namespace FreeCourse.Web.Services
 {
     public class ClientCredentialTokenService : IClientCredentialTokenService
     {
-        private readonly ServiceApiOptions _serviceApiSettings;
+        private readonly ServiceApiSettings _serviceApiSettings;
         private readonly ClientSettings _clientSettings;
         private readonly IClientAccessTokenCache _clientAccessTokenCache;
         private readonly HttpClient _httpClient;
 
-        public ClientCredentialTokenService(IOptions<ServiceApiOptions> serviceApiSettings, IOptions<ClientSettings> clientSettings, IClientAccessTokenCache clientAccessTokenCache, HttpClient httpClient)
+        public ClientCredentialTokenService(IOptions<ServiceApiSettings> serviceApiSettings, IOptions<ClientSettings> clientSettings, IClientAccessTokenCache clientAccessTokenCache, HttpClient httpClient)
         {
             _serviceApiSettings = serviceApiSettings.Value;
             _clientSettings = clientSettings.Value;

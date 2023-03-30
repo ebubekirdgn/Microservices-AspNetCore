@@ -9,12 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient<IIdentityService , IdentityService>();
-builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(ClientSettings.Option));
-builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.Option));
+builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
+builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 <<<<<<< Updated upstream
 builder.Services.AddScoped<IUserService, UserService>();    
 
-var serviceApiOptions = builder.Configuration.GetSection(ServiceApiOptions.Option).Get<ServiceApiOptions>();
+var serviceApiOptions = builder.Configuration.GetSection(ServiceApiSettings.Option).Get<ServiceApiSettings>();
 =======
 builder.Services.AddHttpContextAccessor();
 

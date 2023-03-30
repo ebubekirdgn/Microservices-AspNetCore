@@ -23,9 +23,9 @@ namespace FreeCourse.Web.Services
         private readonly HttpClient _httpClient;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClientSettings _clientSettings;
-        private readonly ServiceApiOptions _serviceApiSettings;
+        private readonly ServiceApiSettings _serviceApiSettings;
 
-        public IdentityService(HttpClient client, IHttpContextAccessor httpContextAccessor, IOptions<ClientSettings> clientSettings, IOptions<ServiceApiOptions> serviceApiSettings)
+        public IdentityService(HttpClient client, IHttpContextAccessor httpContextAccessor, IOptions<ClientSettings> clientSettings, IOptions<ServiceApiSettings> serviceApiSettings)
         {
             _httpClient = client;
             _httpContextAccessor = httpContextAccessor;
