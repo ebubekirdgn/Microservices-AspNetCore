@@ -3,11 +3,6 @@
 
 
 using Microsoft.AspNetCore.Hosting;
-<<<<<<< Updated upstream
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-=======
->>>>>>> Stashed changes
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
