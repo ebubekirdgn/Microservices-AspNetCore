@@ -1,11 +1,13 @@
 using FreeCourse.Web.Handler;
 using FreeCourse.Web.Models;
+using FreeCourse.Web.Services.IdentityService;
 using FreeCourse.Web.Services.UserService;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+ builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(ClientSettings.Option));
 builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.Option));
 builder.Services.AddScoped<IUserService, UserService>();    
