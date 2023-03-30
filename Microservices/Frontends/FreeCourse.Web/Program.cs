@@ -1,8 +1,21 @@
+using FreeCourse.Web.Handler;
+using FreeCourse.Web.Models;
+using Microsoft.Extensions.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
+builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAccessTokenManagement();
+
+
+
+builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+builder.Services.AddScoped<ClientCredentialTokenHandler>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
