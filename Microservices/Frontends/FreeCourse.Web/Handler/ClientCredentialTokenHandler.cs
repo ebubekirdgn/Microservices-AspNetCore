@@ -1,5 +1,5 @@
 ﻿using FreeCourse.Web.Exceptions;
-using FreeCourse.Web.Services.ClientCredentialTokenService;
+using FreeCourse.Web.Services.Interfaces;
 using System.Net.Http.Headers;
 
 namespace FreeCourse.Web.Handler

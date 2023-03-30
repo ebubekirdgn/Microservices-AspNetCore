@@ -1,7 +1,7 @@
 using FreeCourse.Web.Handler;
 using FreeCourse.Web.Models;
-using FreeCourse.Web.Services.IdentityService;
-using FreeCourse.Web.Services.UserService;
+using FreeCourse.Web.Services;
+using FreeCourse.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +11,17 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient<IIdentityService , IdentityService>();
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(ClientSettings.Option));
 builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.Option));
+<<<<<<< Updated upstream
 builder.Services.AddScoped<IUserService, UserService>();    
 
 var serviceApiOptions = builder.Configuration.GetSection(ServiceApiOptions.Option).Get<ServiceApiOptions>();
+=======
+builder.Services.AddHttpContextAccessor();
+
+var serviceApiOptions = builder.Configuration.GetSection(ServiceApiOptions.Option).Get<ServiceApiOptions>();
+builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+builder.Services.AddHttpClient<IIdentityService, IdentityService>();
+>>>>>>> Stashed changes
 
 builder.Services.AddHttpClient<IUserService, UserService>(opt =>
 {
