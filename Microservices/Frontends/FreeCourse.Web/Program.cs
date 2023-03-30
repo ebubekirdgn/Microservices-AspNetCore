@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(ClientSettings.Option));
 builder.Services.Configure<ServiceApiOptions>(builder.Configuration.GetSection(ServiceApiOptions.Option));
+builder.Services.AddScoped<IUserService, UserService>();    
 builder.Services.AddHttpContextAccessor();
 
 var serviceApiOptions = builder.Configuration.GetSection(ServiceApiOptions.Option).Get<ServiceApiOptions>();
