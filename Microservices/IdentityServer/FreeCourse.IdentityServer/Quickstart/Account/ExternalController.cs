@@ -1,22 +1,22 @@
-using FreeCourse.IdentityServer.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Events;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
+using FreeCourse.IdentityServer.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
 
-namespace FreeCourse.IdentityServer.Quickstart.Account
+namespace IdentityServerHost.Quickstart.UI
 {
     [SecurityHeaders]
     [AllowAnonymous]
@@ -59,19 +59,20 @@ namespace FreeCourse.IdentityServer.Quickstart.Account
                 // user might have clicked on a malicious link - should be logged
                 throw new Exception("invalid return URL");
             }
-
-            // start challenge and roundtrip the return URL and scheme
+            
+            // start challenge and roundtrip the return URL and scheme 
             var props = new AuthenticationProperties
             {
-                RedirectUri = Url.Action(nameof(Callback)),
+                RedirectUri = Url.Action(nameof(Callback)), 
                 Items =
                 {
-                    { "returnUrl", returnUrl },
+                    { "returnUrl", returnUrl }, 
                     { "scheme", scheme },
                 }
             };
 
             return Challenge(props, scheme);
+            
         }
 
         /// <summary>
@@ -109,14 +110,14 @@ namespace FreeCourse.IdentityServer.Quickstart.Account
             var additionalLocalClaims = new List<Claim>();
             var localSignInProps = new AuthenticationProperties();
             ProcessLoginCallback(result, additionalLocalClaims, localSignInProps);
-
+            
             // issue authentication cookie for user
             // we must issue the cookie maually, and can't use the SignInManager because
             // it doesn't expose an API to issue additional claims from the login workflow
             var principal = await _signInManager.CreateUserPrincipalAsync(user);
             additionalLocalClaims.AddRange(principal.Claims);
             var name = principal.FindFirst(JwtClaimTypes.Name)?.Value ?? user.Id;
-
+            
             var isuser = new IdentityServerUser(user.Id)
             {
                 DisplayName = name,
