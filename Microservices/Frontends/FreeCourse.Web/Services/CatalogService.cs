@@ -1,4 +1,5 @@
 ﻿using FreeCourse.Shared.Dtos;
+using FreeCourse.Web.Models;
 using FreeCourse.Web.Models.Catalogs;
 using FreeCourse.Web.Services.Interfaces;
 
@@ -66,9 +67,17 @@ namespace FreeCourse.Web.Services
             return responseSuccess.Data;
         }
 
-        public Task<CourseViewModel> GetByCourseId(string courseId)
+        public async Task<CourseViewModel> GetByCourseId(string courseId)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.GetAsync($"courses/{courseId}");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<CourseViewModel>>();
+            return responseSuccess.Data;
         }
 
         public Task<bool> UpdateCourseAsync(CourseUpdateInput courseUpdateInput)
