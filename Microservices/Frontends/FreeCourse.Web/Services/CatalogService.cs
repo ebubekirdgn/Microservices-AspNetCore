@@ -24,9 +24,18 @@ namespace FreeCourse.Web.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<CategoryViewModel>> GetAllCategoryAsync()
+        public async Task<List<CategoryViewModel>> GetAllCategoryAsync()
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.GetAsync("categories");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CategoryViewModel>>>();
+
+            return responseSuccess.Data;
         }
 
         public async Task<List<CourseViewModel>> GetAllCourseAsync()
