@@ -18,9 +18,10 @@ namespace FreeCourse.Web.Services
             var response = await _httpClient.PostAsJsonAsync<CourseCreateInput>("courses", courseCreateInput);
             return response.IsSuccessStatusCode;
         }
-        public Task<bool> DeleteCourseAsync(string courseId)
+        public async Task<bool> DeleteCourseAsync(string courseId)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.DeleteAsync($"courses/{courseId}");
+            return response.IsSuccessStatusCode;
         }
         public async Task<List<CategoryViewModel>> GetAllCategoryAsync()
         {
