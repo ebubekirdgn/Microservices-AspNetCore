@@ -13,7 +13,6 @@ builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("Cli
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 builder.Services.AddHttpContextAccessor();
 
-
 var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
@@ -31,7 +30,6 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opts.SlidingExpiration = true;
     opts.Cookie.Name = "udemywebcookie";
 });
-
 
 var app = builder.Build();
 
