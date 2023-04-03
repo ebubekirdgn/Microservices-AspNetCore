@@ -1,4 +1,6 @@
-﻿using FreeCourse.Web.Models.Catalogs;
+﻿using FreeCourse.Shared.Dtos;
+using FreeCourse.Web.Models;
+using FreeCourse.Web.Models.Catalogs;
 using FreeCourse.Web.Services.Interfaces;
 
 namespace FreeCourse.Web.Services
@@ -27,9 +29,17 @@ namespace FreeCourse.Web.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<CourseViewModel>> GetAllCourseAsync()
+        public async Task<List<CourseViewModel>> GetAllCourseAsync()
         {
-            throw new NotImplementedException();
+            //http:localhost:5000/services/catalog/courses
+            var response = await _httpClient.GetAsync("courses");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CourseViewModel>>>();
+            return responseSuccess.Data;
         }
 
         public Task<List<CourseViewModel>> GetAllCourseByUserIdAsync(string userId)
