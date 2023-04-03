@@ -1,4 +1,6 @@
-﻿namespace FreeCourse.Web.Services.Interfaces
+﻿using FreeCourse.Web.Models.Catalogs;
+
+namespace FreeCourse.Web.Services.Interfaces
 {
     public interface ICatalogService
     {

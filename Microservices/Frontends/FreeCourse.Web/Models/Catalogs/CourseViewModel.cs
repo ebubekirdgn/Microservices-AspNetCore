@@ -1,10 +1,4 @@
-﻿using FreeCourse.Web.Models.Catalogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FreeCourse.Web.Models.Catalogs
+﻿namespace FreeCourse.Web.Models.Catalogs
 {
     public class CourseViewModel
     {
@@ -16,7 +10,7 @@ namespace FreeCourse.Web.Models.Catalogs
         public decimal Price { get; set; }
         public string Picture { get; set; }
         public DateTime CreatedTime { get; set; }
-        public FeatureViewModel FeatureDto { get; set; }
-        public CategoryViewModel CategoryDto { get; set; }
+        public FeatureViewModel Feature { get; set; }
+        public CategoryViewModel Category { get; set; }
     }
 }
