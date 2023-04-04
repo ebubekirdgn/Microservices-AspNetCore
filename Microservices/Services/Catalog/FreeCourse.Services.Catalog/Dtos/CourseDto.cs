@@ -19,6 +19,6 @@
 
         public FeatureDto Feature { get; set; }
 
-        public CategoryDto CategoryDto { get; set; }
+        public CategoryDto Category { get; set; }
     }
 }
