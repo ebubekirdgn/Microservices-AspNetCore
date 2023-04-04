@@ -13,6 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddAccessTokenManagement();
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 
