@@ -17,7 +17,7 @@
 
         public DateTime CreatedTime { get; set; }
 
-        public FeatureDto FeatureDto { get; set; }
+        public FeatureDto Feature { get; set; }
 
         public CategoryDto CategoryDto { get; set; }
     }

@@ -4,7 +4,7 @@ namespace FreeCourse.Web.Models.Catalogs
 {
     public class CourseCreateInput
     {
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
 
         [Display(Name = "Kurs Kategori")]
         [Required]
@@ -18,7 +18,7 @@ namespace FreeCourse.Web.Models.Catalogs
         [Required]
         public string Description { get; set; }
 
-        public string Picture { get; set; }
+        public string? Picture { get; set; }
 
         [Display(Name = "Kurs Ücreti (₺) ")]
         [Required]
