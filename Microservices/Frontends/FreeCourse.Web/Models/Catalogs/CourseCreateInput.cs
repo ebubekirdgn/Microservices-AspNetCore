@@ -25,5 +25,8 @@ namespace FreeCourse.Web.Models.Catalogs
         public decimal Price { get; set; }
 
         public FeatureViewModel Feature { get; set; }
+
+        [Display(Name = "Kurs Resim")]
+        public IFormFile PhotoFormFile { get; set; }
     }
 }
