@@ -46,7 +46,6 @@ namespace FreeCourse.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         public async Task<IActionResult> Update(string id)
         {
             var course = await _catalogService.GetByCourseId(id);
@@ -72,7 +71,6 @@ namespace FreeCourse.Web.Controllers
 
             return View(courseUpdateInput);
         }
-
         [HttpPost]
         public async Task<IActionResult> Update(CourseUpdateInput courseUpdateInput)
         {
