@@ -12,9 +12,10 @@ namespace FreeCourse.Web.Services.PhotoStockService
             _httpClient = httpClient;
         }
 
-        public Task<bool> DeletePhoto(string photoUrl)
+        public async Task<bool> DeletePhoto(string photoUrl)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.DeleteAsync($"photos?photoUrl={photoUrl}");
+            return response.IsSuccessStatusCode;
         }
 
         public async Task<PhotoViewModel> UploadPhoto(IFormFile photo)
