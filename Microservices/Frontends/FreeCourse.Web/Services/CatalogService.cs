@@ -23,7 +23,7 @@ namespace FreeCourse.Web.Services
         {
             var resultPhotoService = await _photoStockService.UploadPhoto(courseCreateInput.PhotoFormFile);
 
-            if (resultPhotoService is not null)
+            if (resultPhotoService != null)
             {
                 courseCreateInput.Picture = resultPhotoService.Url;
             }

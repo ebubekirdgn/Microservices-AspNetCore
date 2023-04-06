@@ -27,13 +27,13 @@ namespace FreeCourse.Web.Services.PhotoStockService
             // örnek dosya ismi= 203802340234.jpg
             var randonFilename = $"{Guid.NewGuid().ToString()}{Path.GetExtension(photo.FileName)}";
 
-            using var ms = new MemoryStream();
+            using var memoryStream = new MemoryStream();
 
-            await photo.CopyToAsync(ms);
+            await photo.CopyToAsync(memoryStream);
 
             var multipartContent = new MultipartFormDataContent();
 
-            multipartContent.Add(new ByteArrayContent(ms.ToArray()), "photo", randonFilename);
+            multipartContent.Add(new ByteArrayContent(memoryStream.ToArray()), "photo", randonFilename);
 
             var response = await _httpClient.PostAsync("photos", multipartContent);
 
