@@ -18,10 +18,12 @@ namespace FreeCourse.Web.Controllers
             _logger = logger;
             _catalogService = catalogService;
         }
+
         public async Task<IActionResult> Index()
         {
             return View(await _catalogService.GetAllCourseAsync());
         }
+
         public async Task<IActionResult> Detail(string id)
         {
             var course = await _catalogService.GetByCourseId(id);
