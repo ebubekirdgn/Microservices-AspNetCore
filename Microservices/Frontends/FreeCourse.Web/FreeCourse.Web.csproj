@@ -15,8 +15,5 @@
     <ProjectReference Include="..\..\Services\Discount\FreeCourse.Services.Discount\FreeCourse.Services.Discount.csproj" />
     <ProjectReference Include="..\..\Shared\FreeCourse.Shared\FreeCourse.Shared.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
 
 </Project>
