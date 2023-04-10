@@ -19,7 +19,6 @@ builder.Services.AddAccessTokenManagement();
 builder.Services.AddSingleton<PhotoHelper>();
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
-
 var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
@@ -32,7 +31,6 @@ builder.Services.AddHttpClient<ICatalogService, CatalogService>(opt =>
 {
     opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
-
 
 builder.Services.AddHttpClient<IPhotoStockService, PhotoStockService>(opt =>
 {
@@ -60,6 +58,10 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+}
+else
+{
+    app.UseDeveloperExceptionPage(); ;
 }
 app.UseStaticFiles();
 
