@@ -1,10 +1,9 @@
 ﻿using FreeCourse.Shared.Dtos;
 using FreeCourse.Web.Helpers;
 using FreeCourse.Web.Models.Catalogs;
-using FreeCourse.Web.Services.Interfaces;
 using FreeCourse.Web.Services.PhotoStockService;
 
-namespace FreeCourse.Web.Services
+namespace FreeCourse.Web.Services.Catalog
 {
     public class CatalogService : ICatalogService
     {
@@ -27,7 +26,7 @@ namespace FreeCourse.Web.Services
             {
                 courseCreateInput.Picture = resultPhotoService.Url;
             }
-            var response = await _httpClient.PostAsJsonAsync<CourseCreateInput>("courses", courseCreateInput);
+            var response = await _httpClient.PostAsJsonAsync("courses", courseCreateInput);
             return response.IsSuccessStatusCode;
         }
 
@@ -93,7 +92,7 @@ namespace FreeCourse.Web.Services
         public async Task<CourseViewModel> GetByCourseId(string courseId)
         {
             var response = await _httpClient.GetAsync($"courses/{courseId}");
-             
+
             if (!response.IsSuccessStatusCode)
             {
                 return null;
@@ -111,10 +110,10 @@ namespace FreeCourse.Web.Services
 
             if (resultPhotoService is not null)
             {
-               await _photoStockService.DeletePhoto(courseUpdateInput.Picture);
+                await _photoStockService.DeletePhoto(courseUpdateInput.Picture);
                 courseUpdateInput.Picture = resultPhotoService.Url;
             }
-            var response = await _httpClient.PutAsJsonAsync<CourseUpdateInput>("courses", courseUpdateInput);
+            var response = await _httpClient.PutAsJsonAsync("courses", courseUpdateInput);
             return response.IsSuccessStatusCode;
         }
     }

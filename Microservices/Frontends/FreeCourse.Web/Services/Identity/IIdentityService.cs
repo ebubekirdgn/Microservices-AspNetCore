@@ -2,7 +2,7 @@
 using FreeCourse.Web.Models;
 using IdentityModel.Client;
 
-namespace FreeCourse.Web.Services.Interfaces
+namespace FreeCourse.Web.Services.Identity
 {
     public interface IIdentityService
     {

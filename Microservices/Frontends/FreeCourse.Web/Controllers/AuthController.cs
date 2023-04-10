@@ -1,5 +1,5 @@
 ﻿using FreeCourse.Web.Models;
-using FreeCourse.Web.Services.Interfaces;
+using FreeCourse.Web.Services.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;

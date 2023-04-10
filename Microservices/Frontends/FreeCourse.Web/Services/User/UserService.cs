@@ -1,7 +1,6 @@
 ﻿using FreeCourse.Web.Models;
-using FreeCourse.Web.Services.Interfaces;
 
-namespace FreeCourse.Web.Services
+namespace FreeCourse.Web.Services.User
 {
     public class UserService : IUserService
     {

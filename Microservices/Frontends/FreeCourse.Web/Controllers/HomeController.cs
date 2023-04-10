@@ -1,6 +1,6 @@
 ﻿using FreeCourse.Web.Exceptions;
 using FreeCourse.Web.Models;
-using FreeCourse.Web.Services.Interfaces;
+using FreeCourse.Web.Services.Catalog;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;

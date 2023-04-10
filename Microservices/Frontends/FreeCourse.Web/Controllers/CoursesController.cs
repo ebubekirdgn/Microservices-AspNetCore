@@ -1,6 +1,6 @@
 ﻿using FreeCourse.Shared.Services;
 using FreeCourse.Web.Models.Catalogs;
-using FreeCourse.Web.Services.Interfaces;
+using FreeCourse.Web.Services.Catalog;
 using FreeCourse.Web.Services.PhotoStockService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

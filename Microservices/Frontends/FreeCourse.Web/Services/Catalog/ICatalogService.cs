@@ -1,6 +1,6 @@
 ﻿using FreeCourse.Web.Models.Catalogs;
 
-namespace FreeCourse.Web.Services.Interfaces
+namespace FreeCourse.Web.Services.Catalog
 {
     public interface ICatalogService
     {

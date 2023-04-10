@@ -1,10 +1,9 @@
 ﻿using FreeCourse.Web.Models;
-using FreeCourse.Web.Services.Interfaces;
 using IdentityModel.AspNetCore.AccessTokenManagement;
 using IdentityModel.Client;
 using Microsoft.Extensions.Options;
 
-namespace FreeCourse.Web.Services
+namespace FreeCourse.Web.Services.ClientCredentialToken
 {
     public class ClientCredentialTokenService : IClientCredentialTokenService
     {
