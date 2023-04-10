@@ -1,7 +1,9 @@
 using FreeCourse.Shared.Services;
+using FreeCourse.Web.Extensions;
 using FreeCourse.Web.Handler;
 using FreeCourse.Web.Helpers;
 using FreeCourse.Web.Models;
+using FreeCourse.Web.Services.Basket;
 using FreeCourse.Web.Services.Catalog;
 using FreeCourse.Web.Services.ClientCredentialToken;
 using FreeCourse.Web.Services.Identity;
@@ -26,23 +28,8 @@ var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialTokenHandler>();
 
-builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
-builder.Services.AddHttpClient<IIdentityService, IdentityService>();
+builder.Services.AddHttpClientServices(builder.Configuration);
 
-builder.Services.AddHttpClient<ICatalogService, CatalogService>(opt =>
-{
-    opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}");
-}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
-
-builder.Services.AddHttpClient<IPhotoStockService, PhotoStockService>(opt =>
-{
-    opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.PhotoStock.Path}");
-}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
-
-builder.Services.AddHttpClient<IUserService, UserService>(opt =>
-{
-    opt.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
-}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 
