@@ -24,7 +24,8 @@ namespace FreeCourse.Web.Controllers
         }
         public async Task<IActionResult> Detail(string id)
         {
-            return View(await _catalogService.GetByCourseId(id));
+            var course = await _catalogService.GetByCourseId(id);
+            return View(course);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
