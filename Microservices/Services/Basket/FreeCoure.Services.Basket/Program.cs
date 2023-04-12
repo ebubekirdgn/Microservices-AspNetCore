@@ -10,7 +10,6 @@ using System.IdentityModel.Tokens.Jwt;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub"); // sub'i mapleme dedik yani identifier olarak alma suub olarak al dedik.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>

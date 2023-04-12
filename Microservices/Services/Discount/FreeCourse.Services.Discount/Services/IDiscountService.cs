@@ -4,11 +4,11 @@ namespace FreeCourse.Services.Discount.Services
 {
     public interface IDiscountService
     {
-        Task<Response<List<Models.Discount>>> GetAll();
-        Task<Response<Models.Discount>> GetById(int id);
-        Task<Response<NoContent>> Save(Models.Discount discount);
-        Task<Response<NoContent>> Update(Models.Discount discount);
+        Task<Response<List<Model.Discount>>> GetAll();
+        Task<Response<Model.Discount>> GetById(int id);
+        Task<Response<NoContent>> Save(Model.Discount discount);
+        Task<Response<NoContent>> Update(Model.Discount discount);
         Task<Response<NoContent>> Delete(int id);
-        Task<Response<Models.Discount>> GetByCodeAndUserId(string code, string userId);
+        Task<Response<Model.Discount>> GetByCodeAndUserId(string code, string userId);
     }
 }
