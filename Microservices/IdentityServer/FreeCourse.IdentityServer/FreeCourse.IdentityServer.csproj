@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.0.0" />
@@ -23,7 +23,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\..\Shared\FreeCourse.Shared\FreeCourse.Shared.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\FreeCourse.Shared\FreeCourse.Shared.csproj" />
+  </ItemGroup>
 </Project>
