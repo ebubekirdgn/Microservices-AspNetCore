@@ -1,9 +1,8 @@
-using FreeCourse.IdentityServer.Quickstart.Account;
+using System;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
-namespace FreeCourse.IdentityServer.Quickstart
+namespace IdentityServerHost.Quickstart.UI
 {
     public static class Extensions
     {
@@ -21,7 +20,7 @@ namespace FreeCourse.IdentityServer.Quickstart
         {
             controller.HttpContext.Response.StatusCode = 200;
             controller.HttpContext.Response.Headers["Location"] = "";
-
+            
             return controller.View(viewName, new RedirectViewModel { RedirectUrl = redirectUri });
         }
     }

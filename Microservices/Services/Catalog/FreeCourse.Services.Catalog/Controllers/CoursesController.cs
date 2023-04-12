@@ -23,7 +23,7 @@ namespace FreeCourse.Services.Catalog.Controllers
             return CreateActionResultInstance(response);
         }
 
-        //courses?id = 4 gibi birşey olacaktı eğer [HttpGet("{id}")] bunu vermeseydik ama şimdi courses/4 olacak. temiz url yapıyoruz.
+        //courses?id = 4 gibi birşey olacaktı eğer [HttpGet("{id}")] bunu vermeseydik ,ama şimdi courses/4 olacak. temiz url yapıyoruz.
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(string id)
         {

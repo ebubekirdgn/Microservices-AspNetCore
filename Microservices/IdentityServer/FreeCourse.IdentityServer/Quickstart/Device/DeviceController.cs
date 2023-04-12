@@ -1,7 +1,11 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-using FreeCourse.IdentityServer.Quickstart.Consent;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using IdentityServer4.Configuration;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
@@ -12,12 +16,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace FreeCourse.IdentityServer.Quickstart.Device
+namespace IdentityServerHost.Quickstart.UI
 {
     [Authorize]
     [SecurityHeaders]
@@ -217,7 +217,6 @@ namespace FreeCourse.IdentityServer.Quickstart.Device
                 Checked = check || apiScope.Required
             };
         }
-
         private ScopeViewModel GetOfflineAccessScope(bool check)
         {
             return new ScopeViewModel
