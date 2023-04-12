@@ -58,7 +58,7 @@ namespace FreeCourse.Web.Services.Basket
 
             return basketViewModel.Data;
         }
-        public Task<bool> RemoveBasketItem(string courseId)
+        public async Task<bool> RemoveBasketItem(string courseId)
         {
             var basket = await Get();
 
