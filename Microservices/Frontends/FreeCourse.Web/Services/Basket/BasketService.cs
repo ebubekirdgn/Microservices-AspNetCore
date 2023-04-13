@@ -1,5 +1,4 @@
-﻿using FreeCourse.Services.Discount.Services;
-using FreeCourse.Shared.Dtos;
+﻿using FreeCourse.Shared.Dtos;
 using FreeCourse.Web.Models.Baskets;
 
 namespace FreeCourse.Web.Services.Basket
@@ -7,15 +6,15 @@ namespace FreeCourse.Web.Services.Basket
     public class BasketService : IBasketService
     {
         private readonly HttpClient _httpClient;
-        private readonly IDiscountService _discountService;
-        public BasketService(HttpClient httpClient, IDiscountService discountService)
+
+        public BasketService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _discountService = discountService;
         }
+
         public async Task AddBasketItem(BasketItemViewModel basketItemViewModel)
-        { 
-            var basket = await Get();   // basketi aldık
+        {
+            var basket = await Get();
 
             if (basket != null)
             {
@@ -33,19 +32,23 @@ namespace FreeCourse.Web.Services.Basket
 
             await SaveOrUpdate(basket);
         }
+
         public Task<bool> ApplyDiscount(string discountCode)
         {
             throw new NotImplementedException();
         }
+
         public Task<bool> CancelApplyDiscount()
         {
             throw new NotImplementedException();
         }
+
         public async Task<bool> Delete()
         {
             var result = await _httpClient.DeleteAsync("baskets");
             return result.IsSuccessStatusCode;
         }
+
         public async Task<BasketViewModel> Get()
         {
             var response = await _httpClient.GetAsync("baskets");
@@ -58,12 +61,12 @@ namespace FreeCourse.Web.Services.Basket
 
             return basketViewModel.Data;
         }
+
         public async Task<bool> RemoveBasketItem(string courseId)
         {
             var basket = await Get();
 
             if (basket == null)
-
             {
                 return false;
             }
@@ -89,6 +92,7 @@ namespace FreeCourse.Web.Services.Basket
 
             return await SaveOrUpdate(basket);
         }
+
         public async Task<bool> SaveOrUpdate(BasketViewModel basketViewModel)
         {
             var response = await _httpClient.PostAsJsonAsync<BasketViewModel>("baskets", basketViewModel);

@@ -1,7 +1,6 @@
 ﻿using FreeCourse.Shared.Services;
 using FreeCourse.Web.Models.Catalogs;
 using FreeCourse.Web.Services.Catalog;
-using FreeCourse.Web.Services.PhotoStockService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -72,6 +71,7 @@ namespace FreeCourse.Web.Controllers
 
             return View(courseUpdateInput);
         }
+
         [HttpPost]
         public async Task<IActionResult> Update(CourseUpdateInput courseUpdateInput)
         {

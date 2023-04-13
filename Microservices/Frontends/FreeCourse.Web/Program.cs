@@ -3,12 +3,6 @@ using FreeCourse.Web.Extensions;
 using FreeCourse.Web.Handler;
 using FreeCourse.Web.Helpers;
 using FreeCourse.Web.Models;
-using FreeCourse.Web.Services.Basket;
-using FreeCourse.Web.Services.Catalog;
-using FreeCourse.Web.Services.ClientCredentialToken;
-using FreeCourse.Web.Services.Identity;
-using FreeCourse.Web.Services.PhotoStockService;
-using FreeCourse.Web.Services.User;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,7 +23,6 @@ builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialTokenHandler>();
 
 builder.Services.AddHttpClientServices(builder.Configuration);
-
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 

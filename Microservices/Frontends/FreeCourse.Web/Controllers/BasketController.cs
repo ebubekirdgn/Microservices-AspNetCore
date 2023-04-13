@@ -15,10 +15,12 @@ namespace FreeCourse.Web.Controllers
             _catalogService = catalogService;
             _basketService = basketService;
         }
+
         public async Task<IActionResult> Index()
         {
             return View(await _basketService.Get());
         }
+
         public async Task<IActionResult> AddBasketItem(string courseId)
         {
             var course = await _catalogService.GetByCourseId(courseId);
@@ -29,11 +31,13 @@ namespace FreeCourse.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
         public async Task<IActionResult> RemoveBasketItem(string courseId)
         {
             var result = await _basketService.RemoveBasketItem(courseId);
 
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
