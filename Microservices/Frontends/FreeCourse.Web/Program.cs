@@ -33,8 +33,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opts.Cookie.Name = "udemywebcookie";
 });
 
-
 builder.Services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CourseCreateInputValidator>());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
