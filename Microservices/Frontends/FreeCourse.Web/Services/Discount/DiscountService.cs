@@ -1,6 +1,27 @@
-﻿namespace FreeCourse.Web.Services.Discount
+﻿using FreeCourse.Shared.Dtos;
+using FreeCourse.Web.Models.Discounts;
+
+namespace FreeCourse.Web.Services.Discount
 {
-    public class DiscountService: IDiscountService
+    public class DiscountService : IDiscountService
     {
+        private readonly HttpClient _httpClient;
+
+        public DiscountService(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
+        public async Task<DiscountViewModel> GetDiscount(string discountCode)
+        {
+            //[controller]/[action]/{code} bu endpointe istek yapacagız   
+            var response = await _httpClient.GetAsync($"discounts/GetByCode/{discountCode}");
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            var discount = await response.Content.ReadFromJsonAsync<Response<DiscountViewModel>>();
+            return discount.Data;
+        }
     }
 }
