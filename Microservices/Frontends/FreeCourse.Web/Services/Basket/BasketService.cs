@@ -1,16 +1,18 @@
-﻿using FreeCourse.Services.Discount.Services;
-using FreeCourse.Shared.Dtos;
+﻿using FreeCourse.Shared.Dtos;
 using FreeCourse.Web.Models.Baskets;
+using FreeCourse.Web.Services.Discount;
 
 namespace FreeCourse.Web.Services.Basket
 {
     public class BasketService : IBasketService
     {
         private readonly HttpClient _httpClient;
+        private readonly DiscountService _discountService;
 
-        public BasketService(HttpClient httpClient)
+        public BasketService(HttpClient httpClient, DiscountService discountService)
         {
             _httpClient = httpClient;
+            _discountService = discountService;
         }
 
         public async Task AddBasketItem(BasketItemViewModel basketItemViewModel)
@@ -32,6 +34,39 @@ namespace FreeCourse.Web.Services.Basket
             }
 
             await SaveOrUpdate(basket);
+        }
+
+        public async Task<bool> ApplyDiscount(string discountCode)
+        {
+            await CancelApplyDiscount();
+            var basket = await Get();
+            if (basket == null || basket.DiscountCode == null)
+            {
+                return false;
+            }
+            var hasDiscount = await _discountService.GetDiscount(discountCode);
+
+            if (hasDiscount == null)
+            {
+                return false;
+            }
+            basket.DiscountRate = hasDiscount.Rate;
+            basket.DiscountCode = hasDiscount.Code;
+            await SaveOrUpdate(basket);
+            return true;
+        }
+
+        public async Task<bool> CancelApplyDiscount()
+        {
+            var basket = await Get();
+            if (basket != null || basket.DiscountCode == null)
+            {
+                return false;
+            }
+            basket.DiscountCode = null;
+            await SaveOrUpdate(basket);
+            return true;
+
         }
 
         public async Task<bool> Delete()
