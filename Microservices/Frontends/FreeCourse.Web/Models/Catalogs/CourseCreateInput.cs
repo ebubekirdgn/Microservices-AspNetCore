@@ -4,7 +4,6 @@ namespace FreeCourse.Web.Models.Catalogs
 {
     public class CourseCreateInput
     {
-        public string? UserId { get; set; }
 
         [Display(Name = "Kurs Kategori")]
         public string CategoryId { get; set; }
@@ -24,5 +23,7 @@ namespace FreeCourse.Web.Models.Catalogs
 
         [Display(Name = "Kurs Resim")]
         public IFormFile PhotoFormFile { get; set; }
+        public string? UserId { get; set; }
+
     }
 }
