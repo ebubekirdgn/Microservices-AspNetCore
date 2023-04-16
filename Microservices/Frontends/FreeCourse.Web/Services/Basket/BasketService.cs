@@ -59,14 +59,15 @@ namespace FreeCourse.Web.Services.Basket
         public async Task<bool> CancelApplyDiscount()
         {
             var basket = await Get();
-            if (basket != null || basket.DiscountCode == null)
+
+            if (basket == null || basket.DiscountCode == null)
             {
                 return false;
             }
-            basket.DiscountCode = null;
+
+            basket.CancelDiscount();
             await SaveOrUpdate(basket);
             return true;
-
         }
 
         public async Task<bool> Delete()
