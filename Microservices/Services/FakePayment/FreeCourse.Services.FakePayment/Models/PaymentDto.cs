@@ -1,6 +1,5 @@
 ﻿namespace FreeCourse.Services.FakePayment.Models
 {
-   {
     public class PaymentDto
     {
         public string CardName { get; set; }

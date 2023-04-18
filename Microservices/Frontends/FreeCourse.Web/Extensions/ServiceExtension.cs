@@ -5,8 +5,10 @@ using FreeCourse.Web.Services.Basket;
 using FreeCourse.Web.Services.Catalog;
 using FreeCourse.Web.Services.ClientCredentialToken;
 using FreeCourse.Web.Services.Identity;
+using FreeCourse.Web.Services.Payment;
 using FreeCourse.Web.Services.PhotoStockService;
 using FreeCourse.Web.Services.User;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FreeCourse.Web.Extensions
 {
@@ -45,10 +47,12 @@ namespace FreeCourse.Web.Extensions
                 opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Discount.Path}");
             }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
-            //services.AddHttpClient<IPaymentService, PaymentService>(opt =>
-            //{
-            //    opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Payment.Path}");
-            //}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+            services.AddHttpClient<IPaymentService, PaymentService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Payment.Path}");
+            }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
 
             //services.AddHttpClient<IOrderService, OrderService>(opt =>
             //{

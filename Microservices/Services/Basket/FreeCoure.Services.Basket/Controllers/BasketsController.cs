@@ -22,7 +22,7 @@ namespace FreeCoure.Services.Basket.Controllers
         [HttpGet]
         public async Task<IActionResult> GetBasket()
         {
-            var  userId = _sharedIdentityService.GetUserId;
+            var userId = _sharedIdentityService.GetUserId;
             return CreateActionResultInstance(await _basketService.GetBasket(_sharedIdentityService.GetUserId));
         }
 
