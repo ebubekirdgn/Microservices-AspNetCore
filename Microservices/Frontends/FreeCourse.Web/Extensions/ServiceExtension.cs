@@ -5,6 +5,7 @@ using FreeCourse.Web.Services.Basket;
 using FreeCourse.Web.Services.Catalog;
 using FreeCourse.Web.Services.ClientCredentialToken;
 using FreeCourse.Web.Services.Identity;
+using FreeCourse.Web.Services.Order;
 using FreeCourse.Web.Services.Payment;
 using FreeCourse.Web.Services.PhotoStockService;
 using FreeCourse.Web.Services.User;
@@ -51,10 +52,10 @@ namespace FreeCourse.Web.Extensions
                 opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Payment.Path}");
             }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
-            //services.AddHttpClient<IOrderService, OrderService>(opt =>
-            //{
-            //    opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Order.Path}");
-            //}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+            services.AddHttpClient<IOrderService, OrderService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Order.Path}");
+            }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
             return services;
         }
