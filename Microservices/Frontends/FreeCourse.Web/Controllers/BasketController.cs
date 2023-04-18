@@ -34,7 +34,7 @@ namespace FreeCourse.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-         
+
         public async Task<IActionResult> RemoveBasketItem(string courseId)
         {
             var result = await _basketService.RemoveBasketItem(courseId);
@@ -48,10 +48,11 @@ namespace FreeCourse.Web.Controllers
             TempData["discountStatus"] = discountStatus;
             return RedirectToAction(nameof(Index));
         }
+
         public async Task<IActionResult> CancelApplyDiscount()
         {
-           await _basketService.CancelApplyDiscount();
-           return RedirectToAction(nameof(Index));
+            await _basketService.CancelApplyDiscount();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

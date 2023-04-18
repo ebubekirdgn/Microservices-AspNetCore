@@ -19,7 +19,6 @@ builder.Services.AddAccessTokenManagement();
 builder.Services.AddSingleton<PhotoHelper>();
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
-
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialTokenHandler>();
 
