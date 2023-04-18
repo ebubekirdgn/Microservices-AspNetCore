@@ -1,6 +1,6 @@
 ﻿using FreeCourse.Shared.Dtos;
 using FreeCourse.Web.Models.Catalogs;
-using FreeCourse.Web.Services.Interfaces;
+using FreeCourse.Web.Services.Catalog;
 
 namespace FreeCourse.Web.Services
 {
