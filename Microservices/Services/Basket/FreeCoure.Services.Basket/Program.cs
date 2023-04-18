@@ -42,7 +42,6 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "FreeCourse.Services.Basket", Version = "v1" });
 });
 
-
 builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();

@@ -31,4 +31,4 @@ namespace FreeCourse.Services.Order.Application.Handlers
             return Response<List<OrderDto>>.Success(ordersDto, 200);
         }
     }
-} 
+}

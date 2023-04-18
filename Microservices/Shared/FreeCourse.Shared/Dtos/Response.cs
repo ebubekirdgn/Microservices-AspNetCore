@@ -5,10 +5,10 @@ namespace FreeCourse.Shared.Dtos
 {
     public class Response<T>
     {
-        public T Data { get;  set; } // Dışarıdan set edilmesin yani nesneleri alıp değiştirmeyecek kimse
+        public T Data { get; set; } // Dışarıdan set edilmesin yani nesneleri alıp değiştirmeyecek kimse
 
         [JsonIgnore]
-        public int StatusCode { get;  set; }
+        public int StatusCode { get; set; }
 
         [JsonIgnore]
         public bool IsSuccessful { get; set; }

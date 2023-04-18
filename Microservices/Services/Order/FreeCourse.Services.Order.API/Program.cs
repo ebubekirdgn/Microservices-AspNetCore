@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,9 +36,6 @@ builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 //builder.Services.AddMediatR(typeof(FreeCourse.Services.Order.Application.Handlers.CreateOrderCommandHandler).GetTypeInfo().Assembly);
 
 builder.Services.AddMediatR(typeof(CreateOrderCommandHandler));
-
-
-
 
 builder.Services.AddControllers(options =>
 {
