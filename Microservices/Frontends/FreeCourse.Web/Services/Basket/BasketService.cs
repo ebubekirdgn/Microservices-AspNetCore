@@ -7,9 +7,9 @@ namespace FreeCourse.Web.Services.Basket
     public class BasketService : IBasketService
     {
         private readonly HttpClient _httpClient;
-        private readonly DiscountService _discountService;
+        private readonly IDiscountService _discountService;
 
-        public BasketService(HttpClient httpClient, DiscountService discountService)
+        public BasketService(HttpClient httpClient, IDiscountService discountService)
         {
             _httpClient = httpClient;
             _discountService = discountService;
@@ -39,6 +39,7 @@ namespace FreeCourse.Web.Services.Basket
         public async Task<bool> ApplyDiscount(string discountCode)
         {
             await CancelApplyDiscount();
+
             var basket = await Get();
             if (basket == null)
             {
