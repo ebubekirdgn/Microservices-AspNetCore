@@ -105,7 +105,7 @@ namespace FreeCourse.Web.Services.Order
 
             if (!responsePayment)
             {
-                return new OrderSuspendViewModel() { Error = "Ödeme alınamadı", IsSuccessful = false };
+                return new OrderSuspendViewModel() { Error = "Ödeme Alınamadı", IsSuccessful = false };
             }
 
             await _basketService.Delete();
