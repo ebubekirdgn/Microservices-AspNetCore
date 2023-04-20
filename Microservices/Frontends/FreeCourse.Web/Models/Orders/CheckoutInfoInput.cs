@@ -5,30 +5,30 @@ namespace FreeCourse.Web.Models.Orders
     public class CheckoutInfoInput
     {
         [Display(Name = "İl")]
-        public string Province { get; set; }
+        public string? Province { get; set; }
 
         [Display(Name = "İlçe")]
-        public string District { get; set; }
+        public string? District { get; set; }
 
         [Display(Name = "Cadde")]
-        public string Street { get; set; }
+        public string? Street { get; set; }
 
         [Display(Name = "Posta Kodu")]
-        public string ZipCode { get; set; }
+        public string? ZipCode { get; set; }
 
         [Display(Name = "Adres")]
-        public string Line { get; set; }
+        public string? Line { get; set; }
 
         [Display(Name = "Kart İsim Soyisim")]
-        public string CardName { get; set; }
+        public string? CardName { get; set; }
 
         [Display(Name = "Kart Numarası")]
-        public string CardNumber { get; set; }
+        public string? CardNumber { get; set; }
 
         [Display(Name = "Son Kullanma Tarih(ay/yıl)")]
-        public string Expiration { get; set; }
+        public string? Expiration { get; set; }
 
         [Display(Name = "CVV/CVC2 Numarası")]
-        public string CVV { get; set; }
+        public string? CVV { get; set; }
     }
 }
