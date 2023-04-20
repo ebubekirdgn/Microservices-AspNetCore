@@ -10,7 +10,7 @@ namespace FreeCourse.Web.Services.Order
         /// <param name="checkoutInfoInput"></param>
         /// <returns></returns>
         Task<OrderCreatedViewModel> CreateOrder(CheckoutInfoInput checkoutInfoInput);
-
+         
         /// <summary>
         /// Asenkron iletişim- sipariş bilgileri rabbitMQ'ya gönderilecek
         /// </summary>

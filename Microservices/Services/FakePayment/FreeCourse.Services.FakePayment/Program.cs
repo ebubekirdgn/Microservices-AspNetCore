@@ -15,6 +15,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.Audience = "resource_payment";
     options.RequireHttpsMetadata = false;
 });
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy)); // Tüm Controllerlarý Authorize etmiþ olduk

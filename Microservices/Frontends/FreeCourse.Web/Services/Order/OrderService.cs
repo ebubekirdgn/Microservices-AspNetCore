@@ -33,7 +33,7 @@ namespace FreeCourse.Web.Services.Order
                 CardNumber = checkoutInfoInput.CardNumber,
                 Expiration = checkoutInfoInput.Expiration,
                 CVV = checkoutInfoInput.CVV,
-                TotalPrice = basket.TotalPrice
+                TotalPrice = basket.TotalPrice,
             };
             var responsePayment = await _paymentService.ReceivePayment(paymentInfoInput);
 
