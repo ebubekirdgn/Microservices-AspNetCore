@@ -4,6 +4,7 @@
     {
         public OrderCreateInput()
         {
+            //Boş bir liste örneği oluşturduk.
             OrderItems = new List<OrderItemCreateInput>();
         }
         public string BuyerId { get; set; }

@@ -9,9 +9,9 @@ namespace FreeCourse.Web.Services.Order
 {
     public class OrderService : IOrderService
     {
-        private readonly IPaymentService _paymentService;
         private readonly HttpClient _httpClient;
         private readonly IBasketService _basketService;
+        private readonly IPaymentService _paymentService;
         private readonly ISharedIdentityService _sharedIdentityService;
 
         public OrderService(IPaymentService paymentService, HttpClient httpClient, IBasketService basketService, ISharedIdentityService sharedIdentityService)
