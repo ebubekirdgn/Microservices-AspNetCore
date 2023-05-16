@@ -13,7 +13,7 @@ builder.Services.AddMassTransit(x =>
     //Default Port = 5672
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host(builder.Configuration["RabbitMQUrl"],"/",host =>
+        cfg.Host(builder.Configuration["RabbitMQUrl"], "/", host =>
         {
             host.Username("guest");
             host.Password("guest");
