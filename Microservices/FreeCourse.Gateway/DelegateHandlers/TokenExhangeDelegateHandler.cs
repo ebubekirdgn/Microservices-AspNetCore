@@ -35,7 +35,7 @@ namespace FreeCourse.Gateway.DelegateHandlers
 
             TokenExchangeTokenRequest tokenExchangeTokenRequest = new TokenExchangeTokenRequest()
             {
-                Address = disco.TokenEndpoint,
+                Address = discovery.TokenEndpoint,
                 ClientId = _configuration["ClientId"],
                 ClientSecret = _configuration["ClientSecret"],
                 GrantType = _configuration["TokenGrantType"],
@@ -59,11 +59,8 @@ namespace FreeCourse.Gateway.DelegateHandlers
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var requestToken = request.Headers.Authorization.Parameter;
-
             var newToken = await GetToken(requestToken);
-
             request.SetBearerToken(newToken);
-
             return await base.SendAsync(request, cancellationToken);
         }
     }
