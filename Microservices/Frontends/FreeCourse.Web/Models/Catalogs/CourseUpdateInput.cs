@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FreeCourse.Web.Models.Catalogs
+﻿namespace FreeCourse.Web.Models.Catalogs
 {
     public class CourseUpdateInput
     {

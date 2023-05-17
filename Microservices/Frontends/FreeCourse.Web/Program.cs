@@ -16,7 +16,6 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddAccessTokenManagement();
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
-
 var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
