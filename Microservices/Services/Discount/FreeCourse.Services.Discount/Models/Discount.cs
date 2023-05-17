@@ -1,4 +1,6 @@
-﻿namespace FreeCourse.Services.Discount.Model
+﻿using System;
+
+namespace FreeCourse.Services.Discount.Models
 {
     [Dapper.Contrib.Extensions.Table("discount")]
     public class Discount
