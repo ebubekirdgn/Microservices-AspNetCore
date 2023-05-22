@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using FreeCourse.Gateway.DelegateHandlers;
+=======
+>>>>>>> main
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -11,8 +14,12 @@ builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthenticationScheme",
     options.RequireHttpsMetadata = false;
 });
 
+<<<<<<< HEAD
 builder.Services.AddHttpClient<TokenExhangeDelegateHandler>();
 builder.Services.AddOcelot().AddDelegatingHandler<TokenExhangeDelegateHandler>();
+=======
+builder.Services.AddOcelot();
+>>>>>>> main
 
 var app = builder.Build();
 var env = builder.Environment;

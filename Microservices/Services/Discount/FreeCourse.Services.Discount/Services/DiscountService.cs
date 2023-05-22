@@ -20,7 +20,18 @@ namespace FreeCourse.Services.Discount.Services
 
             _dbConnection = new NpgsqlConnection(_configuration.GetConnectionString("PostgreSql"));
         }
+<<<<<<< HEAD
 
+=======
+
+        public async Task<Response<List<Model.Discount>>> GetAll()
+        {
+            var discounts = await _dbConnection.QueryAsync<Model.Discount>("Select * from discount");
+
+            return Response<List<Model.Discount>>.Success(discounts.ToList(), 200);
+        }
+
+>>>>>>> main
         public async Task<Response<NoContent>> Delete(int id)
         {
             var status = await _dbConnection.ExecuteAsync("delete from discount where id=@Id", new { Id = id });
@@ -28,7 +39,11 @@ namespace FreeCourse.Services.Discount.Services
             return status > 0 ? Response<NoContent>.Success(204) : Response<NoContent>.Fail("Discount not found", 404);
         }
 
+<<<<<<< HEAD
         public async Task<Response<List<Models.Discount>>> GetAll()
+=======
+        public async Task<Response<Model.Discount>> GetByCodeAndUserId(string code, string userId)
+>>>>>>> main
         {
             var discounts = await _dbConnection.QueryAsync<Models.Discount>("Select * from discount");
 
@@ -49,7 +64,11 @@ namespace FreeCourse.Services.Discount.Services
             return Response<Models.Discount>.Success(hasDiscount, 200);
         }
 
+<<<<<<< HEAD
         public async Task<Response<Models.Discount>> GetById(int id)
+=======
+        public async Task<Response<Model.Discount>> GetById(int id)
+>>>>>>> main
         {
             var discount = (await _dbConnection.QueryAsync<Models.Discount>("select * from discount where id=@Id", new { Id = id })).SingleOrDefault();
 
@@ -61,7 +80,11 @@ namespace FreeCourse.Services.Discount.Services
             return Response<Models.Discount>.Success(discount, 200);
         }
 
+<<<<<<< HEAD
         public async Task<Response<NoContent>> Save(Models.Discount discount)
+=======
+        public async Task<Response<NoContent>> Save(Model.Discount discount)
+>>>>>>> main
         {
             var saveStatus = await _dbConnection.ExecuteAsync("INSERT INTO discount (userid,rate,code) VALUES(@UserId,@Rate,@Code)", discount);
 
@@ -73,7 +96,11 @@ namespace FreeCourse.Services.Discount.Services
             return Response<NoContent>.Fail("an error occurred while adding", 500);
         }
 
+<<<<<<< HEAD
         public async Task<Response<NoContent>> Update(Models.Discount discount)
+=======
+        public async Task<Response<NoContent>> Update(Model.Discount discount)
+>>>>>>> main
         {
             var status = await _dbConnection.ExecuteAsync("update discount set userid=@UserId, code=@Code, rate=@Rate where id=@Id", new { Id = discount.Id, UserId = discount.UserId, Code = discount.Code, Rate = discount.Rate });
 

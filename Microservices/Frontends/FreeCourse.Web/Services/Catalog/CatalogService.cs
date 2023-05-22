@@ -1,5 +1,8 @@
 ﻿using FreeCourse.Shared.Dtos;
+<<<<<<< HEAD:Microservices/Frontends/FreeCourse.Web/Services/Catalog/CatalogService.cs
 using FreeCourse.Web.Helpers;
+=======
+>>>>>>> main:Microservices/Frontends/FreeCourse.Web/Services/CatalogService.cs
 using FreeCourse.Web.Models.Catalogs;
 using FreeCourse.Web.Services.PhotoStockService;
 

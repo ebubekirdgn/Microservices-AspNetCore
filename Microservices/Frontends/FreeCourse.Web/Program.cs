@@ -19,7 +19,12 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddAccessTokenManagement();
 builder.Services.AddSingleton<PhotoHelper>();
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+<<<<<<< HEAD
 builder.Services.AddScoped<IDiscountService, DiscountService>();
+=======
+
+var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
+>>>>>>> main
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialTokenHandler>();
