@@ -2,7 +2,7 @@ version: "3.8"
 services:
   catalogdb:
     image: mongo
-  basketdb:
+  basketdb:                       
     image: redis
   discountdb:
     image: postgres
